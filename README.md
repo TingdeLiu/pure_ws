@@ -78,6 +78,7 @@ bash docker/start_exploration.sh
 
 ---
 
+
 ### **地图1 (map1)**
 
 | 算法 | 探索总用时 (秒) | 总路径长度 (米) | 路径快照 | 探索视频 |
@@ -100,10 +101,10 @@ bash docker/start_exploration.sh
 
 ### **地图5 (map5)**
 
-| 算法 | 探索总用时 (秒) | 总路径长度 (米) | 探索结果 (点击图片观看视频) |
-| :--- | :---: | :---: | :---: |
-| **传统RRT** | 0.02 | 173.58 | [![传统RRT路径](./Demo/map5/rrt/rrt_path_snapshot.png)](./Demo/map5/rrt/vokoscreenNG-2025-06-01_18-19-41.mkv) |
-| **改进RRT (HFD)** | 0.00 | 176.21 | [![改进RRT路径](./Demo/map5/rrt_plus/rrt_exploration.png)](./Demo/map5/rrt_plus/vokoscreenNG-2025-06-01_18-26-58.mkv) |
+| 算法 | 探索总用时 (秒) | 总路径长度 (米) | 路径快照 | 探索视频 |
+| :--- | :---: | :---: | :---: | :---: |
+| **传统RRT** | 0.02 | 173.58 | [查看图片](./Demo/map5/rrt/rrt_path_snapshot.png) | [观看视频](./Demo/map5/rrt/vokoscreenNG-2025-06-01_18-19-41.mkv) |
+| **改进RRT (HFD)** | 0.00 | 176.21 | [查看图片](./Demo/map5/rrt_plus/rrt_exploration.png) | [观看视频](./Demo/map5/rrt_plus/vokoscreenNG-2025-06-01_18-26-58.mkv) |
 
 ---
 
