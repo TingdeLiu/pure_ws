@@ -5,7 +5,10 @@
 2.  **改进的RRT探索算法 (HFD)**：一种混合前沿点检测策略，结合了可变步长RRT、多根节点RRT和基于网格的检测算法，同样结合A*和DWA进行路径规划。
 
 仿真环境基于ROS2 Humble、Gazebo和Nav2构建。
-
+<div align="center">
+  <img src="./Demo/map5/rrt/rrt_path_snapshot.png" alt="RRT路径快照" width="600">
+  <p><em>图：RRT算法路径规划结果</em></p>
+</div>
 ## 核心技术
 
 *   **仿真平台**: ROS2 Humble, Gazebo
