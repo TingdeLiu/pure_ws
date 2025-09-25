@@ -61,12 +61,16 @@ colcon build
 
 ### 5. 启动仿真
 编译成功后，在容器内运行启动脚本来开始仿真。脚本使用 `tmux` 在后台启动所有必要的节点。
+
 ```bash
-# 启动改进的RRT (HFD) 算法仿真
-# 注意：脚本内默认启动的是改进版算法，如需切换，请修改 `start_exploration.sh`
 bash docker/start_exploration.sh
 ```
+
 启动后，您可以通过VNC客户端连接到 `localhost:5901` (密码: `123456`) 来查看Gazebo和RViz的图形化界面。
+
+**切换探索算法**: 
+默认启动的是 **改进的RRT (HFD)** 算法 (`2dpoints_plus.launch.py`)。
+如需切换到 **传统RRT** 算法，请编辑 `docker/start_exploration.sh` 文件，将最后一行 `tmux send-keys` 命令中的 `2dpoints_plus.launch.py` 修改为 `2dpoints.launch.py`。
 
 ## 实验结果对比
 
@@ -83,6 +87,7 @@ bash docker/start_exploration.sh
 
 ---
 
+
 ### **地图4 (map4)**
 
 | 算法 | 探索总用时 (秒) | 总路径长度 (米) | 路径快照 | 探索视频 |
@@ -92,14 +97,16 @@ bash docker/start_exploration.sh
 
 ---
 
+
 ### **地图5 (map5)**
 
-| 算法 | 探索总用时 (秒) | 总路径长度 (米) | 路径快照 | 探索视频 |
-| :--- | :---: | :---: | :---: | :---: |
-| **传统RRT** | 0.02 | 173.58 | [查看图片](./Demo/map5/rrt/rrt_path_snapshot.png) | [观看视频](./Demo/map5/rrt/vokoscreenNG-2025-06-01_18-19-41.mkv) |
-| **改进RRT (HFD)** | 0.00 | 176.21 | [查看图片](./Demo/map5/rrt_plus/rrt_exploration.png) | [观看视频](./Demo/map5/rrt_plus/vokoscreenNG-2025-06-01_18-26-58.mkv) |
+| 算法 | 探索总用时 (秒) | 总路径长度 (米) | 探索结果 (点击图片观看视频) |
+| :--- | :---: | :---: | :---: |
+| **传统RRT** | 0.02 | 173.58 | [![传统RRT路径](./Demo/map5/rrt/rrt_path_snapshot.png)](./Demo/map5/rrt/vokoscreenNG-2025-06-01_18-19-41.mkv) |
+| **改进RRT (HFD)** | 0.00 | 176.21 | [![改进RRT路径](./Demo/map5/rrt_plus/rrt_exploration.png)](./Demo/map5/rrt_plus/vokoscreenNG-2025-06-01_18-26-58.mkv) |
 
 ---
+
 
 ### **地图6 (map6)**
 
