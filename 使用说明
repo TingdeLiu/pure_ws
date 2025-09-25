@@ -1,0 +1,82 @@
+#依次在命令行输入以下指令
+
+#构建
+cd ~/Rob/pure_ws
+colcon build
+
+#启动gazebo
+cd ~/Rob/pure_ws
+source install/setup.bash
+ros2 launch gazebo_modele gazebo.launch.py
+
+#启动 ROS 2 Navigation Stack
+ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
+
+#启动改进型RRT
+cd ~/Rob/pure_ws
+source install/setup.bash
+ros2 launch nav_slam 2dpoints_plus.launch.py
+
+#启动原版RRT
+cd ~/Rob/pure_ws
+source install/setup.bash
+ros2 launch nav_slam 2dpoints.launch.py
+
+
+#发布目标点 (建议位置)
+1.------------------------------------------------
+ros2 topic pub /target_point geometry_msgs/PoseStamped "header:
+  frame_id: 'map'
+pose:
+  position:
+    x: 8.0
+    y: 8.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"
+
+4.-----------------------------------------------------
+ros2 topic pub /target_point geometry_msgs/PoseStamped "header:
+  frame_id: 'map'
+pose:
+  position:
+    x: 3.0
+    y: 7.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0" 
+    
+5.-----------------------------------------------------
+ros2 topic pub /target_point geometry_msgs/PoseStamped "header:
+  frame_id: 'map'
+pose:
+  position:
+    x: -8.0
+    y: -8.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"
+6.------------------------------------------------
+    
+ros2 topic pub /target_point geometry_msgs/PoseStamped "header:
+  frame_id: 'map'
+pose:
+  position:
+    x: -8.0
+    y: -7.0
+    z: 0.0
+  orientation:
+    x: 0.0
+    y: 0.0
+    z: 0.0
+    w: 1.0"  
+
